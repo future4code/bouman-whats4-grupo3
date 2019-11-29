@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components'
+import Formulario from './Components/index'
+
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const Container = styled.div`
+ width: 600px;
+ height: 99.5vh;
+ border: 1px solid black;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+`
+
+const MensagemContainer = styled.div`
+ display: flex;
+ flex-direction: column;
+ padding: 20px;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      <Container>
+        <MensagemContainer></MensagemContainer>
+        <Formulario></Formulario>
+      </Container>
+    </Main>
   );
 }
 
