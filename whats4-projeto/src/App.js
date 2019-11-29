@@ -23,15 +23,32 @@ const MensagemContainer = styled.div`
  padding: 20px;
 `
 
-function App() {
-  return (
-    <Main>
-      <Container>
-        <MensagemContainer></MensagemContainer>
-        <Formulario></Formulario>
-      </Container>
-    </Main>
-  );
+class App extends React.Component{
+  constructor(){
+    super()
+
+    this.state = {
+      mensagens:[]
+    }
+  }
+adicionarMensagem = (texto) => {
+  this.setState({mensagens: [...this.state.mensagens, texto ]})
+}
+
+render(){
+return (
+  <Main>
+    <Container>
+      <MensagemContainer>
+        {
+         this.state.mensagens.map((texto) => <p>{texto.usuarioenviar}{': ' + texto.mensagemenviar}</p>)
+        }
+      </MensagemContainer>
+      <Formulario adicionarMensagem={this.adicionarMensagem}></Formulario>
+    </Container>
+  </Main>
+);
+}
 }
 
 export default App;
